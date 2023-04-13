@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="city-form">
+        <form method="POST" action="/">
+            <input id="city-input" placeholder="Add city..." name="add-city">
+            <button class="button">Add</button>
+        </form>
+    </div>
+    <div class="cards">
+        {% for item in cities %}
+            <div class='card'>
+            <div id='city'>
+                <h1>{{ item['city'] }}</h1>
+            </div>
+            <div id='degrees' class='info'>
+                <h1>{{ item['temp'] }}°F</h1>
+            </div>
+            <div id='condition' class='info'>
+                <h1>{{ item['condition'] }}</h1>
+            </div>
+            </div>
+        {% endfor %}
+      </div>
+</body>
+</html>
